@@ -1,65 +1,47 @@
-# Importing the class from the module
-MyList = _import_("1-my_list").MyList
+# tests/1-my_list.txt
 
-# Checking for module docstring
-m = _import("1-my_list").doc_
-print(len(m) > 1)  # True
+# Test instantiation and methods of MyList
 
-# Checking for class docstring
-c = _import("1-my_list").MyList.doc_
-print(len(c) > 1)  # True
+>>> MyList = __import__('1-my_list').MyList
 
-# Checking for method docstring
-mod = _import("1-my_list").MyList.print_sorted.doc_
-print(len(mod) > 1)  # True
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 
-# Checking that MyList inherits from list
-print(issubclass(MyList, list))  # True
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
 
-# Checking for empty list
-l = MyList()
-l.print_sorted()  # Output: []
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 
-# Checking that appending works
-l.append(1)
-l.append(2)
-l.append(3)
-l.append(4)
-print(l)  # Output: [1, 2, 3, 4]
+# Test with negative numbers
+>>> my_list = MyList()
+>>> my_list.append(-1)
+>>> my_list.append(-4)
+>>> my_list.append(-2)
+>>> my_list.append(-3)
+>>> my_list.append(-5)
+>>> print(my_list)
+[-1, -4, -2, -3, -5]
 
-# Checking for list already in correct order
-l.print_sorted()  # Output: [1, 2, 3, 4]
+>>> my_list.print_sorted()
+[-5, -4, -3, -2, -1]
 
-# Checking for reversed order list
-l = MyList()
-l.append(4)
-l.append(3)
-l.append(2)
-l.append(1)
-print(l)  # Output: [4, 3, 2, 1]
-l.print_sorted()  # Output: [1, 2, 3, 4]
-print(l)  # Output: [4, 3, 2, 1]
+>>> print(my_list)
+[-1, -4, -2, -3, -5]
 
-# Checking for one negative number
-l.append(-1)
-l.append(5)
-print(l)  # Output: [4, 3, 2, 1, -1, 5]
-l.print_sorted()  # Output: [-1, 1, 2, 3, 4, 5]
-print(l)  # Output: [4, 3, 2, 1, -1, 5]
+# Test with an empty list
+>>> my_list = MyList()
+>>> print(my_list)
+[]
 
-# Checking for all negative numbers
-l = MyList()
-l.append(-10)
-l.append(-1)
-l.append(-7)
-l.append(-2)
-l.append(-8)
-print(l)  # Output: [-10, -1, -7, -2, -8]
-l.print_sorted()  # Output: [-10, -8, -7, -2, -1]
-print(l)  # Output: [-10, -1, -7, -2, -8]
+>>> my_list.print_sorted()
+[]
 
-# Checking for too many arguments
-try:
-    l.print_sorted(1)
-except TypeError as e:
-    print(e)  # Output: print_sorted() takes 1 positional argument but 2 were given
+>>> print(my_list)
+[]
