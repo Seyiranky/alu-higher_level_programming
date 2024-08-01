@@ -69,7 +69,7 @@ def run_grade_book_app():
             else:
                 print("Student not found.")
         elif choice == '7':
-            print("Byeee.")
+            print("Goodbye.")
             break
         else:
             print("Invalid choice. Please try again.")
