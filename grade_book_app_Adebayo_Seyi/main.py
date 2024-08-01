@@ -13,7 +13,7 @@ session = Session()
 
 def run_grade_book_app():
 
-    print("Welcome to Ojay's Grade Book Application!")
+    print("Welcome to Adebayo's Grade Book Application!")
 
     grade_book = GradeBook(session)
 
